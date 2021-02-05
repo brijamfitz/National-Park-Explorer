@@ -1,6 +1,6 @@
 import React from 'react';
 
-const apiKey = 'ZqdIVtlZs4bosOOaT3eGUua5NxPiKhPk3VBaGC53';
+const apiKey = process.env.REACT_APP_NPS_API_KEY;
 const baseUrl = 'https://developer.nps.gov/api/v1/parks';
 
 export function searchParks() {
