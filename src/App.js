@@ -7,14 +7,14 @@ import {
 
 /***** Pages *****/
 import Home from './pages/Home/Home';
-import Parks from './pages/Parks/Parks';
+import States from './pages/States/States';
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact={true} path="/" component={Home} />
-        <Route exact={true} path="/parks" component={Parks} />
+        <Route exact={true} path="/states" component={States} />
       </Switch>
     </Router>
   );

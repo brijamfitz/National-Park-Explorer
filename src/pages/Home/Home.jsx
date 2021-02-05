@@ -3,7 +3,7 @@ import React from 'react';
 function Home(props) {
   return (
     <>
-      <a href="/parks">Visit Parks</a>
+      <a href="/states">Visit Parks</a>
     </>
   )
 }

@@ -1,34 +1,57 @@
 import React from 'react';
+import unitedStates from '../../utils/states.js';
 import { Button } from '@material-ui/core';
 import LoginIcon from '@material-ui/icons/AccountCircle';
 
 const apiKey = process.env.REACT_APP_NPS_API_KEY;
-const baseUrl = 'https://developer.nps.gov/api/v1/parks';
+const baseUrl = 'https://developer.nps.gov/api/v1';
+
+console.log(unitedStates);
 
 export function searchParks() {
-  const url = new URL(baseUrl);
+  const url = new URL(baseUrl + '/parks');
   url.searchParams.append('limit', 1000)
 
   return fetch(url, {
     headers: {
       'X-Api-Key': apiKey
-    }}).then(res => res.json());
+    }
+  }).then(res => res.json());
 }
 
-function Parks(props) {
+export function searchParksByActivity() {
+  const url = new URL(baseUrl + '/activities/parks');
+  url.searchParams.append('limit', 1000);
+
+  return fetch(url, {
+    headers: {
+      'X-Api-Key': apiKey
+    }
+  }).then(res => res.json());
+}
+
+function States(props) {
   const [results, setResults] = React.useState(0);
 
   const handleSearch = () => {
-    searchParks().then(res => {
+    searchParksByActivity().then(res => {
       setResults(res.data);
     });
   };
 
-  const resultList = (results || []).map((park) =>
+  const handleClick = event => {
+    console.log(event.target.value);
+  }
+
+  const resultList = (results || []).map(park =>
     <tr key={park.id}>
       <td>{park.fullName}</td>
       <td>{park.states}</td>
     </tr>
+  );
+
+  const statesList = (unitedStates || []).map((state, i) =>
+    <button key={i} value={state.name} onClick={handleClick}>{state.abbreviation}</button>
   );
 
   return (
@@ -43,7 +66,8 @@ function Parks(props) {
           Show Parks
         </Button>
       </div>
-      <h1 className="h1">Parks</h1>
+      <h1 className="h1">States</h1>
+      <div>{statesList}</div>
       <div className="parks">
         <table>
           <thead>
@@ -59,4 +83,4 @@ function Parks(props) {
   )
 }
 
-export default Parks;
+export default States;
