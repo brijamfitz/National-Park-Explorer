@@ -51,7 +51,14 @@ function States(props) {
   );
 
   const statesList = (unitedStates || []).map((state, i) =>
-    <button key={i} value={state.name} onClick={handleClick}>{state.abbreviation}</button>
+    <Button
+      key={i}
+      href={`/${state.name}`}
+      value={state.name}
+      onClick={handleClick}
+    >
+      {state.abbreviation}
+    </Button>
   );
 
   return (
