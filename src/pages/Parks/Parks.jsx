@@ -6,9 +6,11 @@ const baseUrl = 'https://developer.nps.gov/api/v1/parks';
 export function searchParks() {
   const url = new URL(baseUrl);
   url.searchParams.append('limit', '468')
-  url.searchParams.append('api_key', apiKey)
 
-  return fetch(url).then(res => res.json());
+  return fetch(url, {
+    headers: {
+      'X-Api-Key': apiKey
+    }}).then(res => res.json());
 }
 
 function Parks(props) {
