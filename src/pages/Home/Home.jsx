@@ -1,7 +1,11 @@
 import React from 'react';
 
 function Home(props) {
-  return <h1>yooo</h1>
+  return (
+    <>
+      <a href="/parks">Visit Parks</a>
+    </>
+  )
 }
 
 export default Home;
