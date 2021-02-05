@@ -1,11 +1,13 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
+import LoginIcon from '@material-ui/icons/AccountCircle';
 
 const apiKey = process.env.REACT_APP_NPS_API_KEY;
 const baseUrl = 'https://developer.nps.gov/api/v1/parks';
 
 export function searchParks() {
   const url = new URL(baseUrl);
-  url.searchParams.append('limit', '468')
+  url.searchParams.append('limit', 1000)
 
   return fetch(url, {
     headers: {
@@ -32,7 +34,14 @@ function Parks(props) {
   return (
     <div>
       <div className="search-input">
-        <button onClick={handleSearch}>Show Parks</button>
+        <Button
+          startIcon={<LoginIcon />}
+          color="primary"
+          variant="contained"
+          onClick={handleSearch}
+        >
+          Show Parks
+        </Button>
       </div>
       <h1 className="h1">Parks</h1>
       <div className="parks">
