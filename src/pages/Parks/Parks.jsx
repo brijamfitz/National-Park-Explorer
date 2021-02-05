@@ -8,21 +8,22 @@ export function searchParks() {
   url.searchParams.append('limit', '468')
   url.searchParams.append('api_key', apiKey)
 
-  return fetch(url).then(response => response.json());
+  return fetch(url).then(res => res.json());
 }
 
 function Parks(props) {
   const [results, setResults] = React.useState(0);
 
-  const handleSearch = (event) => {
-    searchParks().then(response => {
-      setResults(response.data);
+  const handleSearch = () => {
+    searchParks().then(res => {
+      setResults(res.data);
     });
   };
 
   const resultList = (results || []).map((park) =>
     <tr key={park.id}>
       <td>{park.fullName}</td>
+      <td>{park.states}</td>
     </tr>
   );
 
@@ -31,12 +32,13 @@ function Parks(props) {
       <div className="search-input">
         <button onClick={handleSearch}>Show Parks</button>
       </div>
-      <h1 className="h1">Search Results</h1>
+      <h1 className="h1">Parks</h1>
       <div className="parks">
         <table>
           <thead>
             <tr>
               <th className="title-col">Name</th>
+              <th className="title-col">State</th>
             </tr>
           </thead>
           <tbody>{resultList}</tbody>

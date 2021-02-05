@@ -1,12 +1,13 @@
 import './App.css';
-import Home from './pages/Home/Home';
-import Parks from './pages/Parks/Parks';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 
+/***** Pages *****/
+import Home from './pages/Home/Home';
+import Parks from './pages/Parks/Parks';
 
 function App() {
   return (
