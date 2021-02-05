@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import ParkCard from '../../components/ParkCard/ParkCard';
+import Grid from '@material-ui/core/Grid';
 
 const apiKey = process.env.REACT_APP_NPS_API_KEY;
 const baseUrl = 'https://developer.nps.gov/api/v1/parks';
@@ -18,13 +20,24 @@ function StateParks(props) {
     searchStateParks(state).then(res => setParks(res.data))
   }, [state]);
 
-  const parksList = (parks || []).map(park =>
-    <li key={park.id}>{park.fullName}</li>)
+  const parksList = (parks || []).map((park, i) =>
+    <ParkCard
+      key={i}
+      park={park}
+    />
+  )
 
   return (
-    <ul>
-      {parksList}
-    </ul>
+    <div>
+      <Grid
+        container
+        direction="row"
+        justify="space-around"
+        alignItems="flex-start"
+      >
+        {parksList}
+      </Grid>
+    </div>
   );
 }
 
