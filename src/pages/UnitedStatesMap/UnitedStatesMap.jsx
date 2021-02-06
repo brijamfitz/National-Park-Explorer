@@ -3,6 +3,11 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import _ from 'lodash';
 import USAMap from 'react-usa-map';
+import Header from '../../components/Header/Header';
+import {
+  Container,
+  Grid
+} from '@material-ui/core';
 
 function UnitedStatesMap() {
   // The react-router useHistory hook gives us access to our history instance
@@ -20,7 +25,25 @@ function UnitedStatesMap() {
   }
 
   return (
-    <USAMap onClick={handleClick} />
+    <>
+      <Header />
+
+      <Container maxWidth="lg">
+        <div className="united-states-map__body">
+          <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          <div className="united-states-map__heading">
+            Click on a state to view its National Parks
+          </div>
+          <USAMap onClick={handleClick} />
+        </Grid>
+        </div>
+      </Container>
+    </>
   )
 }
 

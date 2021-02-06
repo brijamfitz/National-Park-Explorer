@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  makeStyles,
   Grid,
   Card,
   CardActions,
@@ -8,6 +7,7 @@ import {
   CardMedia,
   Button,
   Typography,
+  makeStyles
 } from '@material-ui/core';
 
 const useStyles = makeStyles({

@@ -5,9 +5,9 @@ import {
   Container,
   Grid,
   Typography,
-  Button,
   CircularProgress
 } from '@material-ui/core';
+import Header from '../../components/Header/Header';
 
 // Declaring the info we need to build our API query url
 const apiKey = process.env.REACT_APP_NPS_API_KEY;
@@ -53,31 +53,27 @@ function StateParks(props) {
   )
 
   return (
-    <Container>
-      <Typography
-        color="textPrimary"
-        gutterBottom
-        variant="h2"
-        align="center"
-      >
-        {`${!_.isEmpty(stateAbbr) ? stateName : 'United States'} National Parks`}
-      </Typography>
-      <Grid
-        container
-        spacing={3}
-        alignItems="stretch"
-      >
-        {!isFetching ? parksList : <CircularProgress />}
-      </Grid>
+    <>
+      <Header />
 
-      <Button
-        variant="contained"
-        color="primary"
-        href="/"
-      >
-        Return to Map
-      </Button>
-    </Container>
+      <Container>
+        <Typography
+          color="textPrimary"
+          gutterBottom
+          variant="p"
+          align="center"
+        >
+          {`${!_.isEmpty(stateAbbr) ? stateName : 'United States'} National Parks`}
+        </Typography>
+        <Grid
+          container
+          spacing={3}
+          alignItems="stretch"
+        >
+          {!isFetching ? parksList : <CircularProgress />}
+        </Grid>
+      </Container>
+    </>
   );
 }
 
