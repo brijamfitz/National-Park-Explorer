@@ -1,10 +1,11 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
 
 export function Home(props) {
   return (
-    <>
-      <a href="/states">Visit Parks</a>
-    </>
+    <Button href="/states">
+      Get Started
+    </Button>
   )
 }
 

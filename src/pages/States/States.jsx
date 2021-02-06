@@ -1,20 +1,28 @@
 import React from 'react';
 import unitedStates from '../../utils/states.js';
-import { Button } from '@material-ui/core';
+import {
+  Container,
+  Button
+} from '@material-ui/core';
 
-function States(props) {
+function States() {
   const statesList = (unitedStates || []).map((state, i) =>
     <Button
       key={i}
       href={`/states/${state.name}/${state.abbreviation}`}
       value={state.name}
     >
-      {state.abbreviation}
+      <div>
+        <img src={state.image} alt={state.name} />
+        <div>{state.name}</div>
+      </div>
     </Button>
   );
 
   return (
-    <div>{statesList}</div>
+    <Container>
+      {statesList}
+    </Container>
   )
 }
 

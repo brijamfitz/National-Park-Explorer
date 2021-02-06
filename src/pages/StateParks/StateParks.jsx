@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ParkCard from '../../components/ParkCard/ParkCard';
-import Grid from '@material-ui/core/Grid';
+import {
+  Container,
+  Grid,
+  Typography
+} from '@material-ui/core';
+
 
 const apiKey = process.env.REACT_APP_NPS_API_KEY;
 const baseUrl = 'https://developer.nps.gov/api/v1/parks';
@@ -14,11 +19,12 @@ export function searchStateParks(state) {
 
 function StateParks(props) {
   const [parks, setParks] = useState(0);
-  const state = props.match.params.abbreviation || '';
+  const stateName = props.match.params.stateName || '';
+  const stateAbbr = props.match.params.abbreviation || '';
 
   useEffect(() => {
-    searchStateParks(state).then(res => setParks(res.data))
-  }, [state]);
+    searchStateParks(stateAbbr).then(res => setParks(res.data))
+  }, [stateAbbr]);
 
   const parksList = (parks || []).map((park, i) =>
     <ParkCard
@@ -28,16 +34,23 @@ function StateParks(props) {
   )
 
   return (
-    <div>
+    <Container>
+      <Typography
+        color="textPrimary"
+        gutterBottom
+        variant="h2"
+        align="center"
+      >
+        {`${stateName} National Parks`}
+      </Typography>
       <Grid
         container
-        direction="row"
-        justify="space-around"
-        alignItems="flex-start"
+        spacing={3}
+        alignItems="stretch"
       >
         {parksList}
       </Grid>
-    </div>
+    </Container>
   );
 }
 

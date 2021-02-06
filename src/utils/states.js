@@ -1,207 +1,304 @@
+import Alabama from '../assets/Alabama.png';
+import Alaska from '../assets/Alaska.png';
+import Arizona from '../assets/Arizona.png';
+import Arkansas from '../assets/Arkansas.png';
+import California from '../assets/California.png';
+import Colorado from '../assets/Colorado.png';
+import Connecticut from '../assets/Connecticut.png';
+import Delaware from '../assets/Delaware.png';
+import Florida from '../assets/Florida.png';
+import Georgia from '../assets/Georgia.png';
+import Hawaii from '../assets/Hawaii.png';
+import Idaho from '../assets/Idaho.png';
+import Illinois from '../assets/Illinois.png';
+import Indiana from '../assets/Indiana.png';
+import Iowa from '../assets/Iowa.png';
+import Kansas from '../assets/Kansas.png';
+import Kentucky from '../assets/Kentucky.png';
+import Louisiana from '../assets/Louisiana.png';
+import Maine from '../assets/Maine.png';
+import Maryland from '../assets/Maryland.png';
+import Massachusetts from '../assets/Massachusetts.png';
+import Michigan from '../assets/Michigan.png';
+import Minnesota from '../assets/Minnesota.png';
+import Mississippi from '../assets/Mississippi.png';
+import Missouri from '../assets/Missouri.png';
+import Montana from '../assets/Montana.png';
+import Nebraska from '../assets/Nebraska.png';
+import Nevada from '../assets/Nevada.png';
+import NewHampshire from '../assets/NewHampshire.png';
+import NewJersey from '../assets/NewJersey.png';
+import NewMexico from '../assets/NewMexico.png';
+import NewYork from '../assets/NewYork.png';
+import NorthCarolina from '../assets/NorthCarolina.png';
+import NorthDakota from '../assets/NorthDakota.png';
+import Ohio from '../assets/Ohio.png';
+import Oklahoma from '../assets/Oklahoma.png';
+import Oregon from '../assets/Oregon.png';
+import Pennsylvania from '../assets/Pennsylvania.png';
+import RhodeIsland from '../assets/RhodeIsland.png';
+import SouthCarolina from '../assets/SouthCarolina.png';
+import SouthDakota from '../assets/SouthDakota.png';
+import Tennessee from '../assets/Tennessee.png';
+import Texas from '../assets/Texas.png';
+import Utah from '../assets/Utah.png';
+import Vermont from '../assets/Vermont.png';
+import Virginia from '../assets/Virginia.png';
+import Washington from '../assets/Washington.png';
+import WestVirginia from '../assets/WestVirginia.png';
+import Wisconsin from '../assets/Wisconsin.png';
+import Wyoming from '../assets/Wyoming.png';
+
 const unitedStates = [
   {
       "name": "Alabama",
-      "abbreviation": "AL"
+      "abbreviation": "AL",
+      "image": Alabama
   },
   {
       "name": "Alaska",
-      "abbreviation": "AK"
+      "abbreviation": "AK",
+      "image": Alaska
   },
   {
       "name": "Arizona",
-      "abbreviation": "AZ"
+      "abbreviation": "AZ",
+      "image": Arizona
   },
   {
       "name": "Arkansas",
-      "abbreviation": "AR"
+      "abbreviation": "AR",
+      "image": Arkansas
   },
   {
       "name": "California",
-      "abbreviation": "CA"
+      "abbreviation": "CA",
+      "image": California
   },
   {
       "name": "Colorado",
-      "abbreviation": "CO"
+      "abbreviation": "CO",
+      "image": Colorado
   },
   {
       "name": "Connecticut",
-      "abbreviation": "CT"
+      "abbreviation": "CT",
+      "image": Connecticut
   },
   {
       "name": "Delaware",
-      "abbreviation": "DE"
-  },
-  {
-      "name": "District Of Columbia",
-      "abbreviation": "DC"
+      "abbreviation": "DE",
+      "image": Delaware
   },
   {
       "name": "Florida",
-      "abbreviation": "FL"
+      "abbreviation": "FL",
+      "image": Florida
   },
   {
       "name": "Georgia",
-      "abbreviation": "GA"
+      "abbreviation": "GA",
+      "image": Georgia
   },
   {
       "name": "Hawaii",
-      "abbreviation": "HI"
+      "abbreviation": "HI",
+      "image": Hawaii
   },
   {
       "name": "Idaho",
-      "abbreviation": "ID"
+      "abbreviation": "ID",
+      "image": Idaho
   },
   {
       "name": "Illinois",
-      "abbreviation": "IL"
+      "abbreviation": "IL",
+      "image": Illinois
   },
   {
       "name": "Indiana",
-      "abbreviation": "IN"
+      "abbreviation": "IN",
+      "image": Indiana
   },
   {
       "name": "Iowa",
-      "abbreviation": "IA"
+      "abbreviation": "IA",
+      "image": Iowa
   },
   {
       "name": "Kansas",
-      "abbreviation": "KS"
+      "abbreviation": "KS",
+      "image": Kansas
   },
   {
       "name": "Kentucky",
-      "abbreviation": "KY"
+      "abbreviation": "KY",
+      "image": Kentucky
   },
   {
       "name": "Louisiana",
-      "abbreviation": "LA"
+      "abbreviation": "LA",
+      "image": Louisiana
   },
   {
       "name": "Maine",
-      "abbreviation": "ME"
+      "abbreviation": "ME",
+      "image": Maine
   },
   {
       "name": "Maryland",
-      "abbreviation": "MD"
+      "abbreviation": "MD",
+      "image": Maryland
   },
   {
       "name": "Massachusetts",
-      "abbreviation": "MA"
+      "abbreviation": "MA",
+      "image": Massachusetts
   },
   {
       "name": "Michigan",
-      "abbreviation": "MI"
+      "abbreviation": "MI",
+      "image": Michigan
   },
   {
       "name": "Minnesota",
-      "abbreviation": "MN"
+      "abbreviation": "MN",
+      "image": Minnesota
   },
   {
       "name": "Mississippi",
-      "abbreviation": "MS"
+      "abbreviation": "MS",
+      "image": Mississippi
   },
   {
       "name": "Missouri",
-      "abbreviation": "MO"
+      "abbreviation": "MO",
+      "image": Missouri
   },
   {
       "name": "Montana",
-      "abbreviation": "MT"
+      "abbreviation": "MT",
+      "image": Montana
   },
   {
       "name": "Nebraska",
-      "abbreviation": "NE"
+      "abbreviation": "NE",
+      "image": Nebraska
   },
   {
       "name": "Nevada",
-      "abbreviation": "NV"
+      "abbreviation": "NV",
+      "image": Nevada
   },
   {
       "name": "New Hampshire",
-      "abbreviation": "NH"
+      "abbreviation": "NH",
+      "image": NewHampshire
   },
   {
       "name": "New Jersey",
-      "abbreviation": "NJ"
+      "abbreviation": "NJ",
+      "image": NewJersey
   },
   {
       "name": "New Mexico",
-      "abbreviation": "NM"
+      "abbreviation": "NM",
+      "image": NewMexico
   },
   {
       "name": "New York",
-      "abbreviation": "NY"
+      "abbreviation": "NY",
+      "image": NewYork
   },
   {
       "name": "North Carolina",
-      "abbreviation": "NC"
+      "abbreviation": "NC",
+      "image": NorthCarolina
   },
   {
       "name": "North Dakota",
-      "abbreviation": "ND"
+      "abbreviation": "ND",
+      "image": NorthDakota
   },
   {
       "name": "Ohio",
-      "abbreviation": "OH"
+      "abbreviation": "OH",
+      "image": Ohio
   },
   {
       "name": "Oklahoma",
-      "abbreviation": "OK"
+      "abbreviation": "OK",
+      "image": Oklahoma
   },
   {
       "name": "Oregon",
-      "abbreviation": "OR"
+      "abbreviation": "OR",
+      "image": Oregon
   },
   {
       "name": "Pennsylvania",
-      "abbreviation": "PA"
+      "abbreviation": "PA",
+      "image": Pennsylvania
   },
   {
       "name": "Rhode Island",
-      "abbreviation": "RI"
+      "abbreviation": "RI",
+      "image": RhodeIsland
   },
   {
       "name": "South Carolina",
-      "abbreviation": "SC"
+      "abbreviation": "SC",
+      "image": SouthCarolina
   },
   {
       "name": "South Dakota",
-      "abbreviation": "SD"
+      "abbreviation": "SD",
+      "image": SouthDakota
   },
   {
       "name": "Tennessee",
-      "abbreviation": "TN"
+      "abbreviation": "TN",
+      "image": Tennessee
   },
   {
       "name": "Texas",
-      "abbreviation": "TX"
+      "abbreviation": "TX",
+      "image": Texas
   },
   {
       "name": "Utah",
-      "abbreviation": "UT"
+      "abbreviation": "UT",
+      "image": Utah
   },
   {
       "name": "Vermont",
-      "abbreviation": "VT"
+      "abbreviation": "VT",
+      "image": Vermont
   },
   {
       "name": "Virginia",
-      "abbreviation": "VA"
+      "abbreviation": "VA",
+      "image": Virginia
   },
   {
       "name": "Washington",
-      "abbreviation": "WA"
+      "abbreviation": "WA",
+      "image": Washington
   },
   {
       "name": "West Virginia",
-      "abbreviation": "WV"
+      "abbreviation": "WV",
+      "image": WestVirginia
   },
   {
       "name": "Wisconsin",
-      "abbreviation": "WI"
+      "abbreviation": "WI",
+      "image": Wisconsin
   },
   {
       "name": "Wyoming",
-      "abbreviation": "WY"
+      "abbreviation": "WY",
+      "image": Wyoming
   }
 ];
 
