@@ -1,5 +1,9 @@
-.united-states-map__body {
+.united-states-map__main {
   margin: 40px 0 60px 0;
+
+  .united-states-map__heading {
+    color: white;
+  }
 }
 
 /***** Map styles *****/

@@ -1,40 +1,27 @@
+import './header.scss';
 import React from 'react';
 import FilterHdr from '@material-ui/icons/FilterHdr';
 import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
-  makeStyles
+  Typography
 } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    height: 10
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
-
 function Header() {
-  const classes = useStyles();
-
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu" href="/">
-          <FilterHdr />
-        </IconButton>
-        <Typography className={classes.title} variant="h6" noWrap>
-          National Park Explorer
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <div className="header__wrap">
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton edge="start" color="inherit" aria-label="menu" href="/">
+            <FilterHdr />
+          </IconButton>
+          <Typography className="header__title" variant="h6" noWrap>
+            National Park Explorer
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    </div>
   )
 }
 

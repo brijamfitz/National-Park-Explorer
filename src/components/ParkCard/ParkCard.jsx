@@ -1,3 +1,4 @@
+import './parkCard.scss';
 import React from 'react';
 import {
   Grid,
@@ -6,32 +7,21 @@ import {
   CardContent,
   CardMedia,
   Button,
-  Typography,
-  makeStyles
+  Typography
 } from '@material-ui/core';
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 375
-  },
-  media: {
-    height: 200,
-  },
-});
-
+// This component just renders out the data passed down through props from parent
 function ParkCard(props) {
-  const classes = useStyles();
-
   return (
     <Grid container item xs={12} sm={4} key={props.park?.id} alignItems="stretch">
-      <Card className={classes.root}>
+      <Card className="park-card__main">
         <CardMedia
-          className={classes.media}
+          className="park-card__media"
           image={props.park?.images[0]?.url}
           title={props.park?.fullName}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h6" component="h2">
             {props.park?.fullName}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">

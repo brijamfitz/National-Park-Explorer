@@ -1,0 +1,16 @@
+.state-parks__main {
+  margin: 40px 0 60px 0;
+
+  .state-parks__heading {
+    // padding-bottom: 20px;
+    color: white;
+  }
+
+  .state-parks__loading {
+    padding-top: 20px;
+
+    circle {
+      color: white;
+    }
+  }
+}

@@ -29,18 +29,21 @@ function UnitedStatesMap() {
       <Header />
 
       <Container maxWidth="lg">
-        <div className="united-states-map__body">
+        <div className="united-states-map__main">
           <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          <div className="united-states-map__heading">
-            Click on a state to view its National Parks
-          </div>
-          <USAMap onClick={handleClick} />
-        </Grid>
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <div className="united-states-map__heading">
+              Click on a state to view its National Parks
+            </div>
+
+            <div>
+              <USAMap onClick={handleClick} />
+            </div>
+          </Grid>
         </div>
       </Container>
     </>

@@ -1,3 +1,4 @@
+import './stateParks.scss';
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import ParkCard from '../../components/ParkCard/ParkCard';
@@ -45,34 +46,41 @@ function StateParks(props) {
     return fetch(url, { headers: { 'X-Api-Key': apiKey } }).then(res => res.json());
   }
 
-  const parksList = (parks || []).map((park, i) =>
-    <ParkCard
-      key={i}
-      park={park}
-    />
-  )
+  // Loop through the list of parks and return the ParkCard component for each
+  const parksList = (parks || []).map((park, i) => <ParkCard key={i} park={park} />)
 
   return (
     <>
       <Header />
 
-      <Container>
-        <Typography
-          color="textPrimary"
-          gutterBottom
-          variant="p"
-          align="center"
-        >
-          {`${!_.isEmpty(stateAbbr) ? stateName : 'United States'} National Parks`}
-        </Typography>
-        <Grid
-          container
-          spacing={3}
-          alignItems="stretch"
-        >
-          {!isFetching ? parksList : <CircularProgress />}
-        </Grid>
-      </Container>
+      <div className="state-parks__main">
+        <Container>
+          <Typography
+            color="textPrimary"
+            gutterBottom
+            variant="h5"
+            align="center"
+          >
+            <div className="state-parks__heading">
+              {`${!_.isEmpty(stateAbbr) ? stateName : 'United States'} National Parks`}
+              <div className="state-parks__loading">
+                {isFetching &&
+                  <CircularProgress />
+                }
+              </div>
+            </div>
+          </Typography>
+          <Grid
+            container
+            spacing={3}
+            alignItems="stretch"
+          >
+            {!isFetching && 
+              parksList
+            }
+          </Grid>
+        </Container>
+      </div>
     </>
   );
 }
