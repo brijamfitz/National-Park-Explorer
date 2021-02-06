@@ -6,11 +6,10 @@ import {
   Typography
 } from '@material-ui/core';
 
-
 const apiKey = process.env.REACT_APP_NPS_API_KEY;
 const baseUrl = 'https://developer.nps.gov/api/v1/parks';
 
-export function searchStateParks(state) {
+export const searchStateParks = (state) => {
   const url = new URL(baseUrl);
   url.searchParams.append('stateCode', state)
 

@@ -1,18 +1,18 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import {
+  makeStyles,
   Grid,
   Card,
   CardActions,
   CardContent,
   CardMedia,
   Button,
-  Typography
+  Typography,
 } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345
+    maxWidth: 375
   },
   media: {
     height: 200,
@@ -23,8 +23,8 @@ function ParkCard(props) {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} sm={4} key={props.park?.id}>
-      <Card>
+    <Grid container item xs={12} sm={4} key={props.park?.id} alignItems="stretch">
+      <Card className={classes.root}>
         <CardMedia
           className={classes.media}
           image={props.park?.images[0]?.url}

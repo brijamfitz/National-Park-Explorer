@@ -1,16 +1,19 @@
+import './states.scss';
 import React from 'react';
 import unitedStates from '../../utils/states.js';
-import {
-  Container,
-  Button
-} from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import USAMap from "react-usa-map";
+
+export const mapHandler = (event) => {
+  console.log(event.target.dataset);
+};
 
 function States() {
   const statesList = (unitedStates || []).map((state, i) =>
     <Button
       key={i}
       href={`/states/${state.name}/${state.abbreviation}`}
-      value={state.name}
+      variant="contained"
     >
       <div>
         <img src={state.image} alt={state.name} />
@@ -20,9 +23,9 @@ function States() {
   );
 
   return (
-    <Container>
-      {statesList}
-    </Container>
+    <div className="states">
+      <USAMap onClick={mapHandler} />
+    </div>
   )
 }
 
