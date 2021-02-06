@@ -3,20 +3,18 @@ import {
   BrowserRouter as Router,
   Switch,
   Route
-} from "react-router-dom";
+} from 'react-router-dom';
 
 /***** Pages *****/
-import Home from './pages/Home/Home';
-import States from './pages/States/States';
+import UnitedStatesMap from './pages/UnitedStatesMap/UnitedStatesMap';
 import StateParks from './pages/StateParks/StateParks';
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route exact={true} path="/" component={Home} />
-        <Route exact={true} path="/states" component={States} />
-        <Route exact={true} path="/states/:stateName/:abbreviation" component={StateParks} />
+        <Route exact={true} path="/" component={UnitedStatesMap} />
+        <Route exact={true} path="/:stateName/:stateAbbr" component={StateParks} />
       </Switch>
     </Router>
   );

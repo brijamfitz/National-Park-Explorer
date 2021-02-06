@@ -1,29 +1,49 @@
 import React, { useState, useEffect } from 'react';
+import _ from 'lodash';
 import ParkCard from '../../components/ParkCard/ParkCard';
 import {
   Container,
   Grid,
-  Typography
+  Typography,
+  Button,
+  CircularProgress
 } from '@material-ui/core';
 
+// Declaring the info we need to build our API query url
 const apiKey = process.env.REACT_APP_NPS_API_KEY;
 const baseUrl = 'https://developer.nps.gov/api/v1/parks';
 
-export const searchStateParks = (state) => {
-  const url = new URL(baseUrl);
-  url.searchParams.append('stateCode', state)
-
-  return fetch(url, { headers: { 'X-Api-Key': apiKey } }).then(res => res.json());
-}
-
 function StateParks(props) {
+  // Establish state variables
   const [parks, setParks] = useState(0);
-  const stateName = props.match.params.stateName || '';
-  const stateAbbr = props.match.params.abbreviation || '';
+  const [isFetching, setFetching] = useState(false);
+
+  // Grab the state's full name and abbreviation code from the url params
+  // This is available to us through the props.match object
+  const stateName = props.match.params.stateName;
+  const stateAbbr = props.match.params.stateAbbr;
 
   useEffect(() => {
-    searchStateParks(stateAbbr).then(res => setParks(res.data))
+    searchStateParks(stateAbbr)
+    .then(res => {
+      // When the fetch resolves, set the parks state to the response data
+      // Set the isFetching state back to false
+      setParks(res.data);
+      setFetching(false);
+    })
   }, [stateAbbr]);
+
+  const searchStateParks = (stateAbbr) => {
+    // Build the API query url and append the state abbreviation as the query param
+    const url = new URL(baseUrl);
+    url.searchParams.append('stateCode', stateAbbr)
+
+    // Set the isFetching state to true
+    setFetching(true);
+  
+    // TODO: Need to handle error
+    return fetch(url, { headers: { 'X-Api-Key': apiKey } }).then(res => res.json());
+  }
 
   const parksList = (parks || []).map((park, i) =>
     <ParkCard
@@ -40,15 +60,23 @@ function StateParks(props) {
         variant="h2"
         align="center"
       >
-        {`${stateName} National Parks`}
+        {`${!_.isEmpty(stateAbbr) ? stateName : 'United States'} National Parks`}
       </Typography>
       <Grid
         container
         spacing={3}
         alignItems="stretch"
       >
-        {parksList}
+        {!isFetching ? parksList : <CircularProgress />}
       </Grid>
+
+      <Button
+        variant="contained"
+        color="primary"
+        href="/"
+      >
+        Return to Map
+      </Button>
     </Container>
   );
 }

@@ -86,6 +86,11 @@ const unitedStates = [
       "image": Connecticut
   },
   {
+      "name": "District Of Columbia",
+      "abbreviation": "DC",
+      "image": ''
+  },
+  {
       "name": "Delaware",
       "abbreviation": "DE",
       "image": Delaware
