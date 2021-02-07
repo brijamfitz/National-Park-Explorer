@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import ParkCard from './ParkCard';
+import ParkCard from '../components/ParkCard/ParkCard';
  
 describe('ParkCard', () => {
   test('Renders ParkCard component', () => {
