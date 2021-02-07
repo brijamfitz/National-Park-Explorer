@@ -1,6 +1,7 @@
 import './stateParks.scss';
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
+import { ApiHelper } from "../../utils/apiHelper";
 import ParkCard from '../../components/ParkCard/ParkCard';
 import {
   Container,
@@ -15,39 +16,20 @@ const apiKey = process.env.REACT_APP_NPS_API_KEY;
 const baseUrl = 'https://developer.nps.gov/api/v1/parks';
 
 function StateParks(props) {
-  // Establish state variables
-  const [parks, setParks] = useState(0);
-  const [isFetching, setFetching] = useState(false);
-
   // Grab the state's full name and abbreviation code from the url params
   // This is available to us through the props.match object
   const stateName = props.match.params.stateName;
   const stateAbbr = props.match.params.stateAbbr;
 
-  useEffect(() => {
-    searchStateParks(stateAbbr)
-    .then(res => {
-      // When the fetch resolves, set the parks state to the response data
-      // Set the isFetching state back to false
-      setParks(res.data);
-      setFetching(false);
-    })
-  }, [stateAbbr]);
+  // Build the API query url and append the state abbreviation as the query param
+  const url = new URL(baseUrl);
+  url.searchParams.append('stateCode', stateAbbr)
 
-  const searchStateParks = (stateAbbr) => {
-    // Build the API query url and append the state abbreviation as the query param
-    const url = new URL(baseUrl);
-    url.searchParams.append('stateCode', stateAbbr)
-
-    // Set the isFetching state to true
-    setFetching(true);
-  
-    // TODO: Need to handle error
-    return fetch(url, { headers: { 'X-Api-Key': apiKey } }).then(res => res.json());
-  }
+  // Execute our ApiHelper function to make the request
+  const { data, isLoading, hasError } = ApiHelper(url, [], apiKey);
 
   // Loop through the list of parks and return the ParkCard component for each
-  const parksList = (parks || []).map((park, i) => <ParkCard key={i} park={park} />)
+  const parksList = (data.data || []).map((park, i) => <ParkCard key={i} park={park} />)
 
   return (
     <>
@@ -64,8 +46,12 @@ function StateParks(props) {
             <div className="state-parks__heading">
               {`${!_.isEmpty(stateAbbr) ? stateName : 'United States'} National Parks`}
               <div className="state-parks__loading">
-                {isFetching &&
+                {isLoading &&
                   <CircularProgress />
+                }
+
+                {hasError &&
+                  <div>Something went wrong. Please try refreshing your browser.</div>
                 }
               </div>
             </div>
@@ -75,7 +61,7 @@ function StateParks(props) {
             spacing={3}
             alignItems="stretch"
           >
-            {!isFetching && 
+            {!isLoading &&
               parksList
             }
           </Grid>
