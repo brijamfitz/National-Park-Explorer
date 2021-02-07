@@ -17,6 +17,7 @@ function ParkCard(props) {
       <Card className="park-card__main">
         <CardMedia
           className="park-card__media"
+          component="img"
           image={props.park?.images[0]?.url}
           title={props.park?.fullName}
         />

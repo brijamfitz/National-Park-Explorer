@@ -1,7 +1,7 @@
 import './stateParks.scss';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import _ from 'lodash';
-import { ApiHelper } from "../../utils/apiHelper";
+import { ApiHelper } from "../../utils/ApiHelper";
 import ParkCard from '../../components/ParkCard/ParkCard';
 import {
   Container,
