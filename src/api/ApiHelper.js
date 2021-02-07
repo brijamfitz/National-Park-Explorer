@@ -10,27 +10,29 @@ export function ApiHelper(initialUrl, initialData, apiKey) {
   const [fetchedData, setFetchedData] = useState(initialData);
 
   useEffect(() => {
-    // On initial mount, set the unmounted flag to false
+    // Initially set an unmounted flag to false
     let unmounted = false;
 
     const handleFetchResponse = (response) => {
-      // If the component has already mounted, use the data that is already there
+      // Once our data has been fetched, we set the unmounted flag to true
+      // This means our data is already there and we can just return it
       if (unmounted) return initialData;
 
-      // Set our state based on the response
+      // This will flip our error states accordingly
       setHasError(!response.ok);
+      // Data has been fetched, so we can set this to false
       setIsLoading(false);
 
-      // If a response is there, do the json method it
+      // If ok is true and the json is there, execute the json method on the response per the fetch spec
       // Otherwise, return the data that is already there
       return response.ok && response.json ? response.json() : initialData;
     };
 
     const fetchData = () => {
-      // Set our loading state to true
+      // Set our loading state to true while data is being fetched
       setIsLoading(true);
 
-      // Make the request and use our above function in each block
+      // Makes the actual API request and passes in the above function for each block
       return (
         fetch(url, { headers: { 'X-Api-Key': apiKey }})
         .then(handleFetchResponse)
@@ -38,6 +40,9 @@ export function ApiHelper(initialUrl, initialData, apiKey) {
       )
     };
 
+    // This condition will execute when the component mounts
+    // The url will be passed in and the unmounted flag will have been set to false
+    // We call our fetchData function which executes the API request and sets our data
     if (initialUrl && !unmounted) {
       fetchData().then(data => !unmounted && setFetchedData(data));
     }
