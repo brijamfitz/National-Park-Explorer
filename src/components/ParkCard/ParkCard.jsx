@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 
 // This component simply renders out the data passed down through props from parent
-function ParkCard(props) {
+const ParkCard = (props) => {
   return (
     <Grid container item xs={12} sm={4} key={props.park?.id} alignItems="stretch">
       <Card className="park-card__container">

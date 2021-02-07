@@ -8,7 +8,7 @@ import {
   Typography
 } from '@material-ui/core';
 
-function Header() {
+const Header = () => {
   return (
     <div className="header__container">
       <AppBar position="static">

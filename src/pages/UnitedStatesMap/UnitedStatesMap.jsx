@@ -9,7 +9,7 @@ import {
   Grid
 } from '@material-ui/core';
 
-function UnitedStatesMap() {
+const UnitedStatesMap = () => {
   // The react-router useHistory hook gives us access to our history instance
   // This object provides us with the ability to navigate within the app
   const history = useHistory();

@@ -15,7 +15,7 @@ import {
 const apiKey = process.env.REACT_APP_NPS_API_KEY;
 const baseUrl = 'https://developer.nps.gov/api/v1/parks';
 
-function StateParks(props) {
+const StateParks = (props) => {
   // Grab the state's full name and abbreviation code from the url params
   // This is available to us through the props.match object
   const stateName = props.match.params.stateName;
