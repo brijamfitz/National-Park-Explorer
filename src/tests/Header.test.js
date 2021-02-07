@@ -9,13 +9,11 @@ describe('Header', () => {
 
   test('Text should contain the words "National Park Explorer"', () => {
     render(<Header />);
-
     expect(screen.getByText(/National Park Explorer/)).toBeInTheDocument();
   });
 
   test('Menu link should be in the DOM', () => {
     render(<Header />);
-
     expect(screen.getByRole('link')).toBeInTheDocument();
   });
 });

@@ -47,7 +47,7 @@ const UnitedStatesMap = () => {
               Click or tap on a state to view its National Parks
             </div>
 
-            <div className="united-states-map__map">
+            <div className="united-states-map__map" data-testid="united-states-map__svg">
               <USAMap onClick={handleClick} />
             </div>
           </Grid>
