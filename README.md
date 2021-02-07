@@ -6,6 +6,8 @@ Link: [National Park Explorer](https://national-parks-explorer.vercel.app/)
 
 This National Park Explorer is a React app that allows you to view each state's National Park sites.
 
+This app is built with [Create React App](https://github.com/facebook/create-react-app). See more detailed information about the toolchain below.
+
 It consumes the official [National Park Service API](https://www.nps.gov/subjects/developer/get-started.htm).
 
 The interactive map is a wonderful `npm` addition from [react-usa-map](https://www.npmjs.com/package/react-usa-map).
