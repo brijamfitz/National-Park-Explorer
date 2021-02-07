@@ -1,35 +1,39 @@
-.united-states-map__main {
-  margin: 40px 0 60px 0;
-
-  .united-states-map__heading {
-    color: white;
-  }
-}
-
 /***** Breakpoint variables *****/
 $breakpoint-tablet: 768px;
 $breakpoint-mobile: 450px;
 
-/***** Map styles *****/
-.united-states-map__map {
-  path {
-    pointer-events: all;
-  }
-  
-  path:hover {
-    opacity: 0.5;
-    cursor: pointer;
+.united-states-map__main {
+  margin: 40px 0 60px 0;
+
+  svg {
+    margin: 0 auto;
   }
 
-  @media (max-width: $breakpoint-tablet) {
-    svg {
-      width: 500px;
+  .united-states-map__heading {
+    color: white;
+  }
+
+  /***** Map styles *****/
+  .united-states-map__map {
+    path {
+      pointer-events: all;
     }
-  }
+    
+    path:hover {
+      opacity: 0.5;
+      cursor: pointer;
+    }
 
-  @media (max-width: $breakpoint-mobile) {
-    svg {
-      width: 350px;
+    @media (max-width: $breakpoint-tablet) {
+      svg {
+        width: 500px;
+      }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      svg {
+        width: 350px;
+      }
     }
   }
 }

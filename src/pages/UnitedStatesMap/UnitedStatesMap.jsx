@@ -39,7 +39,7 @@ function UnitedStatesMap() {
             alignItems="center"
           >
             <div className="united-states-map__heading">
-              Click on a state to view its National Parks
+              Click or tap on a state to view its National Parks
             </div>
 
             <div className="united-states-map__map">
