@@ -6,12 +6,30 @@
   }
 }
 
-/***** Map styles *****/
-path {
-  pointer-events: all;
-}
+/***** Breakpoint variables *****/
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 450px;
 
-path:hover {
-  opacity: 0.5;
-  cursor: pointer;
+/***** Map styles *****/
+.united-states-map__map {
+  path {
+    pointer-events: all;
+  }
+  
+  path:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    svg {
+      width: 500px;
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    svg {
+      width: 300px;
+    }
+  }
 }

@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 
 function UnitedStatesMap() {
-  // Change the default title of the react-usa-map
+  // TODO: Change the default title of the react-usa-map
  
   // The react-router useHistory hook gives us access to our history instance
   // This object provides us with the ability to navigate within the app
@@ -42,7 +42,7 @@ function UnitedStatesMap() {
               Click on a state to view its National Parks
             </div>
 
-            <div>
+            <div className="united-states-map__map">
               <USAMap onClick={handleClick} />
             </div>
           </Grid>
