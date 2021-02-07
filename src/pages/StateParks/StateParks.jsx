@@ -1,7 +1,8 @@
 import './stateParks.scss';
 import React from 'react';
 import _ from 'lodash';
-import { ApiHelper } from "../../api/ApiHelper.js";
+import { ApiHelper } from '../../api/ApiHelper.js';
+import Header from '../../components/Header/Header';
 import ParkCard from '../../components/ParkCard/ParkCard';
 import {
   Container,
@@ -9,7 +10,6 @@ import {
   Typography,
   CircularProgress
 } from '@material-ui/core';
-import Header from '../../components/Header/Header';
 
 // Declaring the info we need to build our API query url
 const apiKey = process.env.REACT_APP_NPS_API_KEY;
@@ -23,14 +23,14 @@ function StateParks(props) {
 
   // Build the API query url and append the state abbreviation as the query param
   const url = new URL(baseUrl);
-  url.searchParams.append('stateCode', stateAbbr)
+  url.searchParams.append('stateCode', stateAbbr);
 
   // Execute our ApiHelper function to make the request
   const { data, isLoading, hasError } = ApiHelper(url, [], apiKey);
 
   // Loop through the list of parks and return the ParkCard component for each
-  const parksList = (data.data || []).map((park, i) => <ParkCard key={i} park={park} />)
-  const parkTotal = data.total || ''
+  const parksList = (data.data || []).map((park, i) => <ParkCard key={i} park={park} />);
+  const parkTotal = data.total || '';
 
   return (
     <>
@@ -47,9 +47,11 @@ function StateParks(props) {
             <div className="state-parks__heading">
               {`${!_.isEmpty(stateAbbr) ? stateName : 'United States'} National Parks`}
 
-              <div className="state-parks__total">
-                {`Total: ${parkTotal}`}
-              </div>
+              {!isLoading &&
+                <div className="state-parks__total">
+                  {`Total: ${parkTotal}`}
+                </div>
+              }
 
               <div className="state-parks__loading-error">
                 {isLoading &&

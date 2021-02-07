@@ -5,11 +5,6 @@ $breakpoint-mobile: 450px;
 .united-states-map__main {
   margin: 40px 0 60px 0;
 
-  svg {
-    margin: 0 auto;
-    padding-left: 10px;
-  }
-
   .united-states-map__heading {
     color: white;
   }
@@ -23,6 +18,11 @@ $breakpoint-mobile: 450px;
     path:hover {
       opacity: 0.5;
       cursor: pointer;
+    }
+
+    svg {
+      margin: 0 auto;
+      padding-left: 10px;
     }
 
     @media (max-width: $breakpoint-tablet) {
