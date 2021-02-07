@@ -1,7 +1,7 @@
 import './stateParks.scss';
 import React from 'react';
 import _ from 'lodash';
-import { ApiHelper } from "../../utils/ApiHelper";
+import { ApiHelper } from "../../utils/ApiHelper.jsx";
 import ParkCard from '../../components/ParkCard/ParkCard';
 import {
   Container,
