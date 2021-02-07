@@ -11,9 +11,7 @@ import {
 
 function UnitedStatesMap() {
   // Change the default title of the react-usa-map
-  const mapElem = document.querySelector('title');
-  if (!_.isNull(mapElem)) mapElem.innerHTML = 'Map of the United States';
-
+ 
   // The react-router useHistory hook gives us access to our history instance
   // This object provides us with the ability to navigate within the app
   const history = useHistory();
