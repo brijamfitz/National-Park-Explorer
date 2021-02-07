@@ -1,8 +1,19 @@
-.park-card__main {
+.park-card__container {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   max-width: 375px;
+  box-shadow: 5px 10px red;
+
+  > div {
+    flex-grow: 1;
+  }
 
   .park-card__media {
     height: 200px
+  }
+
+  .park-card__actions-btn {
+    align-items: flex-end;
   }
 }

@@ -10,7 +10,7 @@ import {
 
 function Header() {
   return (
-    <div className="header__wrap">
+    <div className="header__container">
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu" href="/">

@@ -10,8 +10,6 @@ import {
 } from '@material-ui/core';
 
 function UnitedStatesMap() {
-  // TODO: Change the default title of the react-usa-map
- 
   // The react-router useHistory hook gives us access to our history instance
   // This object provides us with the ability to navigate within the app
   const history = useHistory();
@@ -26,12 +24,19 @@ function UnitedStatesMap() {
     history.push(`/${!_.isEmpty(stateName) ? stateName : 'Washington, D.C.'}/${stateAbbr}`);
   }
 
+  // This cleanup removes the default title of the react-usa-map
+  // On hover it would display 'Blank map of United States'
+  setTimeout(() => {
+    const mapElem = document.querySelector('.united-states-map__map');
+    if (mapElem !== null) mapElem.querySelector('title').remove();
+  }, 1000);
+
   return (
     <>
       <Header />
 
       <Container maxWidth="lg">
-        <div className="united-states-map__main">
+        <div className="united-states-map__container">
           <Grid
             container
             direction="row"

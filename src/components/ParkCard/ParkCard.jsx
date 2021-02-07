@@ -14,7 +14,7 @@ import {
 function ParkCard(props) {
   return (
     <Grid container item xs={12} sm={4} key={props.park?.id} alignItems="stretch">
-      <Card className="park-card__main">
+      <Card className="park-card__container">
         <CardMedia
           className="park-card__media"
           component="img"
@@ -29,7 +29,7 @@ function ParkCard(props) {
             {props.park?.description}
           </Typography>
         </CardContent>
-        <CardActions>
+        <CardActions className="park-card__actions-btn">
           <Button size="small" color="primary" href={props.park?.url} target="_blank">
             Learn More
           </Button>

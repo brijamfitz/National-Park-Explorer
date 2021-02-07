@@ -36,7 +36,7 @@ function StateParks(props) {
     <>
       <Header />
 
-      <div className="state-parks__main">
+      <div className="state-parks__container">
         <Container>
           <Typography
             color="textPrimary"
