@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 // Custom hook that handles fetching data from an API
 // It takes in three arguments
-export const ApiHelper = (initialUrl, initialData, apiKey) => {
+export function ApiHelper(initialUrl, initialData, apiKey) {
   // Initialize state objects that we will eventually return
   const [url, setUrl] = useState(initialUrl);
   const [isLoading, setIsLoading] = useState(true);
