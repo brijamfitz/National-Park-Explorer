@@ -31,6 +31,8 @@ function StateParks(props) {
   // Loop through the list of parks and return the ParkCard component for each
   const parksList = (data.data || []).map((park, i) => <ParkCard key={i} park={park} />)
 
+  console.log(data);
+
   return (
     <>
       <Header />
@@ -45,7 +47,12 @@ function StateParks(props) {
           >
             <div className="state-parks__heading">
               {`${!_.isEmpty(stateAbbr) ? stateName : 'United States'} National Parks`}
-              <div className="state-parks__loading">
+
+              <div className="state-parks__total">
+                {`Total: ${data.total}`}
+              </div>
+
+              <div className="state-parks__loading-error">
                 {isLoading &&
                   <CircularProgress />
                 }

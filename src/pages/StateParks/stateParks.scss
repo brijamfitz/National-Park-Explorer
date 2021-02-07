@@ -6,7 +6,11 @@
     color: white;
   }
 
-  .state-parks__loading {
+  .state-parks__total {
+    font-size: 20px;
+  }
+
+  .state-parks__loading-error {
     padding-top: 20px;
 
     circle {
