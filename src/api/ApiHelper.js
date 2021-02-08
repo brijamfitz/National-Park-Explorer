@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 // Custom hook that handles fetching data from an API
 // It takes in three arguments
