@@ -1,6 +1,6 @@
 {
-  "name": "national-parks-react",
-  "version": "1.0.1",
+  "name": "national-parks-explorer",
+  "version": "1.0.2",
   "author": "Brian Fitzgerald",
   "private": true,
   "dependencies": {
