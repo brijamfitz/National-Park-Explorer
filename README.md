@@ -1,6 +1,6 @@
 # National Park Explorer
 
-Link: [National Park Explorer](https://national-parks-explorer.vercel.app/)
+Link: [National Park Explorer](https://national-park-explorer.vercel.app/)
 
 ![image](./public/npe-screenshot.png)
 
